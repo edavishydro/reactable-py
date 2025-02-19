@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from ipyreact import define_mnodule, Widget
+from ipyreact.widgets import Widget
+from ipyreact.module import define_module
 
 from importlib_resources import files
 from pathlib import Path
