@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import ipyreact
+from ipyreact import define_mnodule, Widget
 
 from importlib_resources import files
 from pathlib import Path
@@ -14,7 +14,7 @@ if TYPE_CHECKING:
 
 # This ensures that the javascript is only loaded once, rather
 # than included in every widget instance. Note that
-ipyreact.define_module("reactable", Path(str(STATIC_FILES / "reactable-py.esm.js")))
+define_module("reactable", Path(str(STATIC_FILES / "reactable-py.esm.js")))
 
 
 def embed_css():
@@ -41,7 +41,7 @@ def embed_css():
     )
 
 
-class ReactableWidget(ipyreact.Widget):
+class ReactableWidget(Widget):
     # _esm = Path(str(STATIC_FILES / "reactable-py.esm.js"))
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs, _module="reactable", _type="default")
